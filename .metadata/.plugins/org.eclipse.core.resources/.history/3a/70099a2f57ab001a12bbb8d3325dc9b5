@@ -1,0 +1,39 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Preserve extends FoodItem{
+	private int intSize;
+	public Preserve() {
+		super();
+		this.intSize = 0;
+	}
+
+	public boolean addItem(Scanner scanner) {
+
+		//Must be positive integer
+		while (true) { // loops forever until break
+			try { // checks code for exceptions
+				System.out.println("Enter the size of the jar in millilitres: ");
+				intSize = scanner.nextInt();
+				while(intSize < 0) {
+					System.out.print("\nEnter the quantity for the item: ");
+					intSize = scanner.nextInt();
+					continue;
+				}
+				return false; // if no exceptions breaks out of loop
+			} 
+			catch (InputMismatchException e) { //if an exception appears prints message below
+				System.err.println("\nInvalid entry");
+				scanner.next(); // clear scanner wrong input
+				continue; // continues to loop if exception is found
+			}
+		}
+		return false;
+	}
+	public int getIntSize() {
+		return intSize;
+	}
+	public String toString() {
+		return "size: " + this.intSize;
+	}
+}

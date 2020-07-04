@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class Preserve extends FoodItem{
+	private int intSize;
+	public Preserve() {
+		
+	}
+	public String toString() {
+		return "";
+	}
+	public boolean addItem(Scanner scanner) {
+		return false;
+	}
+}

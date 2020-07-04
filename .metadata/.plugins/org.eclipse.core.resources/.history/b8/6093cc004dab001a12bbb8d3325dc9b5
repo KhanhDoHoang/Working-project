@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Inventory {
+	private FoodItem[] inventory;
+	public Inventory() {
+		
+	}
+	public String toString() {
+		return "";
+	}
+	public int alreadyExist(FoodItem item) {
+		return -1;
+	}
+	public boolean addItem(Scanner scanner) {
+		return false;
+	}
+	public boolean updateQuality(Scanner scanner, boolean buyOrSell) {
+		return false;
+	}
+}

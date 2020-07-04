@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Preserve extends FoodItem{
+	private int intSize;
+	public Preserve() {
+		super();
+		this.intSize = 0;
+	}
+
+	public boolean addItem(Scanner scanner) {
+		System.out.println("Enter the size of the jar in millilitres: ");
+		//Must be positive integer
+		return false;
+	}
+	public int getIntSize() {
+		return intSize;
+	}
+	public String toString() {
+		return "size: " + this.intSize;
+	}
+}

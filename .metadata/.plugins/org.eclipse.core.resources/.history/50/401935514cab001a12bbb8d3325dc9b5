@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class FoodItem {
+
+	private int itemCode;
+	private String itemName;
+	private float itemPrice;
+	private int itemQuality;
+	private float itemCost;
+	
+	public FoodItem() {
+		this.itemCode = 0;
+		
+	}
+	public String toString() {
+		//Display all data members in the class
+		String str = "";
+		
+		return "";
+	}
+	public boolean updateItem(int amount) {
+		//Update a quantity field, could be positive or negative
+		return false;
+	}
+	public boolean isEqual(FoodItem item) {
+		return false;
+	}
+	public boolean addItem(Scanner scanner) {
+		return false;
+	}
+	public boolean inputCode(Scanner scanner) {
+		return false;
+	}
+}

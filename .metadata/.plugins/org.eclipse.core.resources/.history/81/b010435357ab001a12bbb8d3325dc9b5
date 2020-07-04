@@ -1,0 +1,168 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class FoodItem {
+
+	private int itemCode;
+	private String itemName;
+	private float itemPrice;
+	private int itemQuantityInStock;
+	private float itemCost;
+
+	public FoodItem() {
+		this.itemCode = 0;
+		this.itemName = "";
+		this.itemPrice = 0;
+		this.itemQuantityInStock = 0;
+		this.itemCost = 0;
+	}
+
+	/**
+	 * Update a quantity field
+	 * @param int
+	 * @return boolean
+	 */
+	public boolean updateItem(int amount) {
+		//Update a quantity field, could be positive or negative
+
+		return false;
+	}
+	/**
+	 * Check for valid item for bying or selling
+	 * @param FoodItem
+	 * @return boolean
+	 */
+	public boolean isEqual(FoodItem item) {
+		return false;
+	}
+	/**
+	 * Check for valid item from Fruit, Preserve or Vegetable
+	 * @param Scanner
+	 * @return boolean
+	 */
+	public boolean addItem(Scanner scanner) {
+		//---------------Check for itemCode-----------------------------
+		//Must be an integer
+		System.out.print("Enter the code for the item: ");
+		String s = scanner.nextLine();
+		try {
+			this.itemCode = Integer.parseInt(s);
+		}catch(NumberFormatException e) {
+			System.out.println("Invalid entry!");
+			return false;
+		}
+
+		//Check if there is a space or tab
+		while(s.equals(null) || s.equals(" ") || s.equals("\t")) {
+			System.out.println("\nInvalid entry!");
+			System.out.print("\nEnter the code for the item: ");
+			s = scanner.nextLine();
+		}
+		this.itemCode = Integer.parseInt(s);
+		//-----------------------------------------------------------------------
+		//------------------Check for itemName------------------------------------
+		System.out.print("\nEnter the name for the item: ");
+		this.itemName = scanner.next();
+		//Can be any input
+		//--------------------------------------------------------------------------------------//
+		//------------------Check for quantity------------------------------------
+		//Must be positive
+		while (true) { // loops forever until break
+			try { // checks code for exceptions
+				System.out.print("\nEnter the quantity for the item: ");
+				itemQuantityInStock = scanner.nextInt();
+				while(itemQuantityInStock < 0) {
+					System.out.print("\nEnter the quantity for the item: ");
+					itemQuantityInStock = scanner.nextInt();
+					continue;
+				}
+				return false; // if no exceptions breaks out of loop
+			} 
+			catch (InputMismatchException e) { //if an exception appears prints message below
+				System.err.println("\nInvalid entry");
+				scanner.next(); // clear scanner wrong input
+				continue; // continues to loop if exception is found
+			}
+		}
+
+		//--------------------------------------------------------------------------------------//
+		//-----------Check for cost----------------------------------
+		while (true) { // loops forever until break
+			try { // checks code for exceptions
+				System.out.print("\nEnter the cost of the item: ");
+				itemCost = scanner.nextInt();
+				while(itemCost < 0) {
+					System.out.print("\nEnter the cost of the item: ");
+					itemCost = scanner.nextInt();
+					continue;
+				}
+				break; // if no exceptions breaks out of loop
+			} 
+			catch (InputMismatchException e) { //if an exception appears prints message below
+				System.err.println("\nInvalid entry");
+				scanner.next(); // clear scanner wrong input
+				continue; // continues to loop if exception is found
+			}
+		}
+		//--------------------------------------------------------------------------------------//
+		//-----------Check for price---------------------------------
+		System.out.print("\nEnter the price of the item: ");
+		itemPrice = scanner.nextInt();
+		while (true) { // loops forever until break
+			try { // checks code for exceptions
+				System.out.print("\nEnter the price of the item: ");
+				itemPrice = scanner.nextInt();
+				while(itemPrice < 0) {
+					System.out.print("\nEnter the price of the item: ");
+					itemPrice = scanner.nextInt();
+					continue;
+				}
+				break; // if no exceptions breaks out of loop
+			} 
+			catch (InputMismatchException e) { //if an exception appears prints message below
+				System.err.println("\nInvalid entry");
+				scanner.next(); // clear scanner wrong input
+				continue; // continues to loop if exception is found
+			}
+		}
+		return false;
+	}
+	/**
+	 * Check for valid item for bying or selling
+	 * @param Scanner
+	 * @return boolean
+	 */
+	public boolean inputCode(Scanner scanner) {
+		return false;
+	}
+
+	/**
+	 * Display data members
+	 * @return toString
+	 */
+	public String toString() {	
+		//Display all data members in the class
+
+		return "Item: " + this.itemCode + " " + this.itemName + " " 
+		+ this.itemQuantityInStock + " price: " + this.itemPrice
+		+ " cost: " + this.itemCost;
+		//How to add fruit, vegie or preserve to this toString
+		//May call from main
+	}
+
+	public int getItemCode() {
+		return itemCode;
+	}
+	public String getItemName() {
+		return itemName;
+	}
+	public float getItemPrice() {
+		return itemPrice;
+	}
+	public int getItemQuantityInStock() {
+		return itemQuantityInStock;
+	}
+	public float getItemCost() {
+		return itemCost;
+	}
+}

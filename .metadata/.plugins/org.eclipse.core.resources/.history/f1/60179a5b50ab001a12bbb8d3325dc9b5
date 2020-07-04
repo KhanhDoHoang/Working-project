@@ -1,0 +1,41 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Fruit extends FoodItem{
+	private String orchardName;
+	public Fruit() {
+		super();
+		this.orchardName = "";
+	}
+	public String toString() {
+		String str = "Farm supplier: ";
+		str += this.orchardName;
+		return str;
+	}
+	public boolean addItem(Scanner scanner) {
+			System.out.print("Enter the code for the item: ");
+			int itemCode = scanner.nextInt();
+			while(!scanner.hasNextInt()) {
+				System.out.print("Enter the code for the item: ");
+				itemCode = scanner.nextInt();
+				continue;
+			}
+			System.out.print("\nEnter the name for the item: ");
+			String itemName = scanner.next();
+			
+			System.out.print("\nEnter the quantity for the item: ");
+			int quantity = scanner.nextInt();
+			
+			System.out.print("\nEnter the cost of the item: ");
+			int cost = scanner.nextInt();
+			
+			System.out.print("\nEnter the name of the orchar supplier: ");
+			orchardName = scanner.next();
+			
+			
+		return false;
+	}
+	public String getOrchardName() {
+		return orchardName;
+	}
+}

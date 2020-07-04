@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class Inventory {
+	private FoodItem[] inventory;
+
+	public Inventory() {
+		this.inventory = new FoodItem[-1];
+	}
+	public String toString() {
+		//Display all data member
+		String str = "";
+		for (int i = 0; i < inventory.length; i++) {
+			str += inventory.toString();
+			str += "\n";
+		}
+		return str;
+	}
+	public int alreadyExist(FoodItem item) {
+		//---Return the index of a FoodItem in the inventory array
+		for (int i = 0 ; i < inventory.length; i++) {
+
+		}
+		if(true) {
+
+		}
+		return -1;
+	}
+	public boolean addItem(Scanner scanner) {
+		//----Adds an item to the inventory array 
+		//Use polymorphism to call addItem method in the FoodItem
+		int len = inventory.length;
+		if(len < 0) {
+			FoodItem[] array2 = new FoodItem[len+1]; //numItems = 0 + 1 //default constructor
+			for(int i = 0; i < len; i++) {		//loop through original // i = 0 < 1 = numItems
+				array2[i] = inventory[i];				//Copy
+			}
+			array2[len++] = new FoodItem();			//lastItem = userInput =>append
+			inventory = array2;						//put it back to mama
+		} else {
+			try {
+				inventory[len++] = new FoodItem();	//parameter constructor//not -1//lastItem gonna be added
+			}catch(IndexOutOfBoundsException e) {
+				System.out.println("");
+				len--;
+			}catch(Exception e) { 
+				//return;
+			}
+		}
+		return false;
+	}
+	public boolean updateQuality(Scanner scanner, boolean buyOrSell) {
+		return false;
+	}
+}

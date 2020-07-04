@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Fruit extends FoodItem{
+	private String orchardName;
+	FoodItem foodItem;
+	public Fruit() {
+		super();
+		this.orchardName = "";
+		foodItem = new FoodItem();
+	}
+
+	public boolean addItem(Scanner scanner) {
+		System.out.print("\nEnter the name of the orchar supplier: ");
+		orchardName = scanner.next();
+
+		return true;
+	}
+	public String getOrchardName() {
+		return orchardName;
+	}
+
+	public String toString() {
+		String str = foodItem.toString();
+		str = "orchard supplier: ";
+		str += this.orchardName;
+		return str;
+	}
+}

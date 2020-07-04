@@ -1,0 +1,83 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Assign1 {
+	private static Scanner keyboard = new Scanner(System.in);
+	/**
+	 * @param args
+	 */
+	public static void main (String[]args) {
+		String choice = ""; //Choice for general options
+		Fruit fruit = new Fruit(); //Fruit
+		Vegetables vegie = new Vegetables(); //Vegie
+		Preserve preserve = new Preserve();	//Preserve
+		Inventory inven = new Inventory(); //Initialize inventory
+
+		do {
+			Scanner input = new Scanner(System.in);
+			displayMenu();
+
+			choice = keyboard.nextLine();
+			while(choice.equals(null) || choice.equals("") || choice.equals("\t") || !choice.equals("1") && !choice.equals("2") 
+					&& !choice.equals("3") && !choice.equals("4") && !choice.equals("5")) {
+				System.out.println("Incorrect value entered! Please enter 1-5: ");
+				choice = keyboard.nextLine();
+				continue;
+			}
+
+			//Link to the food item and then array 1 for vegies
+			//Array 2 for preserve
+			//Array 3 for fruit
+			
+			if (choice.equals("1")) {
+				//Add Item
+				System.out.println("Do you wish to add a fruit(f), vegetable(v) or a preserve(p)?");
+				String userOption = input.nextLine();
+				while(userOption.equals(null) || userOption.equals("") || userOption.equals("\t") || !userOption.equals("f") && !userOption.equals("p") && !userOption.equals("v")) {
+					System.out.println("Invalid! Do you wish to add a fruit(f), vegetable(v) or a preserve(p)?");
+					userOption = input.nextLine();
+					continue;
+				}
+				//Assigning values for specific classes
+				if(userOption.equals("f")) {
+					//Fruit
+					fruit.addItem(keyboard);
+				} else if (userOption.equals("v")) {
+					//Vegie
+					vegie.addItem(keyboard);
+				} else {
+					//Preserve
+					preserve.addItem(keyboard);
+				}
+			} else if (choice.equals("2")) {
+				//Display Current Inventory
+				inven.toString();
+			} else if (choice.equals("3")) {
+				//Buy Items
+				//Check for the items in the inventory
+				//If there is nothing print Error could not buy item
+			} else if (choice.equals("4")) {
+				//Sell Items
+				//Check for the items in the inventory
+				//If there is nothing print Error could not sell item
+				//If there is not matching print Error could not sell item
+			} else {
+				continue;
+			}
+		}while(choice.equals("1") || choice.equals("2") || choice.equals("3") || choice.equals("4"));
+		System.out.println("Exitting...");
+
+	}
+	/**
+	 * This is main menu displaying the choices for user
+	 * @param args
+	 */
+	public static void displayMenu() {
+		System.out.println("Please select one of the following: ");
+		System.out.println("1: Add Item to Inventory");
+		System.out.println("2: Display Current Inventory");
+		System.out.println("3: Buy Item(s)");
+		System.out.println("4: Sell Item(s)");
+		System.out.println("5: To Exit");
+	}
+}

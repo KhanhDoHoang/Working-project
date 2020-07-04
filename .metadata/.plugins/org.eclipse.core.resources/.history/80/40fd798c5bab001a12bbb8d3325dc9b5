@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+/**
+ * This is read file class
+ * @author HoangDo
+ *
+ */
+public class Vegetables extends FoodItem{
+
+	private String farmName;
+	private FoodItem foodItem;
+	public Vegetables() {
+		super();
+		this.farmName = "";
+	}
+
+	public boolean addItem(Scanner scanner) {
+		System.out.print("\nEnter the name of the farm supplier: ");
+		farmName = scanner.next();
+		
+		return false;
+	}
+	public String getFarmName() {
+		return farmName;
+	}
+	public String toString() {
+		String str = foodItem.toString();
+		str += "farm supplier: " + this.farmName;
+		return str;
+	}
+}
